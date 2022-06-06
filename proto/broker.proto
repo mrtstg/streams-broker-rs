@@ -1,0 +1,53 @@
+syntax = "proto3";
+package broker;
+
+service MessageBroker {
+    rpc RegisterGroup (GroupRequest) returns (GroupCreateReply);
+    rpc InsertMessage (InsertRequest) returns (InsertReply);
+    rpc ReadMessages (ReadRequest) returns (ReadReply);
+    rpc DeleteStream (StreamRequest) returns (StreamReply);
+}
+
+message ReadReply {
+    repeated string messages = 1;
+}
+
+message ReadRequest {
+    string stream = 1;
+    string consumer = 2;
+    uint32 amount = 3;
+    optional string message_key = 4;
+    optional uint32 block_time = 5;
+    string group_name = 6;
+}
+
+message InsertReply {
+    string reply = 1;
+    bool inserted = 2;
+}
+
+message InsertRequest {
+    string content = 1;
+    string stream = 2;
+    optional uint32 stream_length = 3;
+    optional string message_key = 4;
+}
+
+message GroupCreateReply {
+    string reply = 1;
+    bool created = 2;
+}
+
+message GroupRequest {
+    string stream = 1;
+    optional string message_key = 2;
+    string group_name = 3;
+}
+
+message StreamRequest {
+    string stream = 1;
+}
+
+message StreamReply {
+    int32 reply = 1;
+}
