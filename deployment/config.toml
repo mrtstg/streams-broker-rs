@@ -1,0 +1,13 @@
+service_ip = "0.0.0.0"
+service_port = 80
+
+redis_url = "redis://redis:6379"
+redis_pool_size = 5
+
+log_level = "INFO"
+default_block = 500
+
+[env_mapping]
+service_port="PORT"
+redis_url="REDIS_URL"
+log_level="LOG_LEVEL"
