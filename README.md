@@ -25,7 +25,7 @@ For example, if we have line
 ```
 log_level="LOG_LEVEL"
 ```
-server will look up env. variable value and if it doesn't exist will take variable from config file.
+server will look up env. variable value "LOG_LEVEL" and if it doesn't exist will take variable from config file.
 ## TODO's
 - [ ] Basic operations with keys
 - [ ] Advanced message insert
